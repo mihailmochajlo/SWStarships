@@ -55,7 +55,7 @@ namespace App
         {
             try
             {
-                //GetData ();
+                GetData ();
                 logger.Log (LogLevel.Information, $"starting calculations for Distance = {distance}");
                 return starships.AsParallel ()
                     .Select (starship => {
