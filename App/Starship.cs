@@ -17,7 +17,17 @@ namespace App
 
         public int CalculateNumberOfStopsForDistance (uint Distance)
         {
-            return int.MinValue;
+            int result = Distance != 0 ? -1 : 0;
+
+            if (this.MegalightsPerHour > 0 && this.Consumables > 0)
+            {
+                double hours_to_cover = (double) Distance / this.MegalightsPerHour;
+                double number_of_resupplies = hours_to_cover / this.Consumables;
+                result = (int)Math.Ceiling (number_of_resupplies);
+                result = result != 0 ? result - 1 : result;
+            }
+
+            return result;
         }
     }
 }
