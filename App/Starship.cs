@@ -17,6 +17,8 @@ namespace App
 
         public int CalculateNumberOfStopsForDistance (uint Distance)
         {
+            // if zero distance to be covered set result to 0 (as no jumps expected in any case)
+            // else - set to undefined
             int result = Distance != 0 ? -1 : 0;
 
             if (this.MegalightsPerHour > 0 && this.Consumables > 0)
